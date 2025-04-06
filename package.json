@@ -1,0 +1,41 @@
+{
+  "name": "bun-on-rails",
+  "module": "index.js",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
+    "winston": "^3.13.1",
+    "bun-on-rails-core": "file:./core"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "umzug": "^3.8.1"
+  },
+  "scripts": {
+    "start": "bun run index.js",
+    "dev": "NODE_ENV=development bun --watch index.js",
+    "test": "bun test",
+    "db:create": "bun run core/db/create.js",
+    "db:drop": "echo 'db:drop not configured, use manual SQL or sequelize-cli'",
+    "db:migrate": "bun run core/db/migrate.js",
+    "db:migrate:undo": "bun run db/scripts/rollback.js",
+    "db:seed:all": "bun run core/db/seed.js",
+    "db:seed:undo:all": "echo 'db:seed:undo:all not configured'",
+    "g:migration": "bun run core/generators/migration.js",
+    "g:model": "bun run core/generators/model.js",
+    "g:controller": "bun run core/generators/controller.js"
+  },
+  "imports": {
+    "#bun-on-rails/*": "./core/*",
+    "#app/*": "./app/*",
+    "#config/*": "./config/*"
+  },
+  "trustedDependencies": ["bun-on-rails-core"]
+}

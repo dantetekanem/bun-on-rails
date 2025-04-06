@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body { 
+      font-family: system-ui, sans-serif; 
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    header {
+      background: #0055ff;
+      color: white;
+      padding: 1rem 0;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2rem 0;
+    }
+    footer {
+      border-top: 1px solid #eee;
+      padding: 1rem 0;
+      margin-top: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Bun on Rails</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/users">Users</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <%- body %>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> Bun on Rails - A convention-over-configuration framework</p>
+    </div>
+  </footer>
+</body>
+</html>
